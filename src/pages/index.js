@@ -4,7 +4,7 @@ import HeroSection from '../sections/HeroSection'
 
 const IndexPage = () => (
   <div>
-    <HeroSection />
+   <HeroSection />
   </div>
 )
 
