@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import { themes } from '../components/Styles/ColorStyle'
 import PurchaseButton from '../components/Buttons/PurchaseButton'
 import MockupAnimation from '../components/animation/MockupAnimation'
@@ -34,6 +34,12 @@ function HeroSection() {
 
 export default HeroSection
 
+const animation = keyframes`
+   0% { opacity: 0; transform: translateY(-10px); filter: blur(10px); }
+  80% { opacity: 0.5; transform: translateY(-10px); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0px); filter: blur(0px); }
+`
+
 const Wrapper = styled.div`
     overflow: hidden;
 `
@@ -51,6 +57,9 @@ const Title = styled.h1`
   color: ${themes.dark.text1};
   margin-bottom: 20px;
   line-height: 70px;
+  animation: ${animation} 1s;
+  opacity: 0;
+  animation: ${animation} 1s 0.1s forwards;
 `
 const Description = styled.p`
 	font-size: 17px;
@@ -60,4 +69,16 @@ const TextWrapper = styled.div`
   max-width: 360px;
   display: grid;
   gap: 30px;
+
+  > * {
+  :nth-child(1) {
+    animation: ${animation} 1s 0s forwards;
+  }
+  :nth-child(2) {
+    animation: ${animation} 1s 0.4s forwards;
+  }
+  :nth-child(3) {
+    animation: ${animation} 1s 0.6s forwards;
+  }
+}
 `
