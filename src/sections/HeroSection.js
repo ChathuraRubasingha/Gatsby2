@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import { themes } from '../components/Styles/ColorStyle'
 import PurchaseButton from '../components/Buttons/PurchaseButton'
 import MockupAnimation from '../components/animation/MockupAnimation'
+import WaveBackground from '../components/backgrounds/WaveBackground'
 
 
 
 function HeroSection() {
   return (
     <Wrapper>
+    <WaveBackground />
       <ContentWrapper>
       <TextWrapper>
         <Title>
@@ -33,7 +35,6 @@ function HeroSection() {
 export default HeroSection
 
 const Wrapper = styled.div`
-    background: linear-gradient(180deg, #4316DB 0%, #9076E7 100%);
     overflow: hidden;
 `
 const ContentWrapper = styled.div`

@@ -1,21 +1,14 @@
 import Link from 'gatsby-link'
-import React from 'react'
+import React, { useState } from "react"
 import styled from 'styled-components'
+import MenuToolTip from '../components/tooltips/MenuToolTip'
+import { menuData } from '../Data/menuData'
 
-const menuData = [ { title: "Courses", icon: "/images/icons/courses.svg", link: "/courses" },
-{
-  title: "Tutorials",
-  icon: "/images/icons/tutorials.svg",
-  link: "/tutorials",
-},
-{ title: "Pricing", icon: "/images/icons/pricing.svg", link: "/pricing" },
-{ title: "Pricing", icon: "/images/icons/pricing.svg", link: "/pricing" },
-{ title: "", icon: "/images/icons/search.svg", link: "/search" },
-{ title: "", icon: "/images/icons/account.svg", link: "/account" },]
 
 export default function Header() {
+  const[isOpen, setIsOpen] = useState(false)
   return (
-	<Wrapper>
+	<Wrapper >
      <img src="/images/logos/logo.svg" />
      <MenuWrapper>
 		{menuData.map(item => (
@@ -26,12 +19,15 @@ export default function Header() {
             </MenuItem>
             </Link>
         ))}
+        <button onClick={() => setIsOpen(!isOpen)} style={{background:"transparent", border:'none', color: 'rgba(255,255,255,0.8)', fontSize:'15px'}}>Account</button>
     </MenuWrapper>
+    <MenuToolTip isOpen ={isOpen} />
     </Wrapper>
 	)
 }
 
 const Wrapper = styled.div`
+    display:grid;
     grid-template-columns: 44px auto;
 	justify-content: space-between;
     position: absolute;
