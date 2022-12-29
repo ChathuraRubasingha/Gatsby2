@@ -21,6 +21,16 @@ export default function Header() {
         ))}
         <button onClick={() => setIsOpen(!isOpen)} style={{background:"transparent", border:'none', color: 'rgba(255,255,255,0.8)', fontSize:'15px'}}>Account</button>
     </MenuWrapper>
+    <HamburgerWrapper>
+	<MenuItem
+	  item={{
+	    title: "",
+	    icon: "/images/icons/hamburger.svg",
+	    link: "",
+	  }}
+	  onClick={event => handleClick(event)}
+	/>
+</HamburgerWrapper>
     <MenuToolTip isOpen ={isOpen} />
     </Wrapper>
 	)
@@ -35,11 +45,26 @@ const Wrapper = styled.div`
 	align-items: center;
 	width: 100%;
 	padding: 0 30px;
+
+  @media (max-width: 768px) {
+  top: 30px;
+}
+@media (max-width: 450px) {
+	top: 20px;
+  padding: 0 20px;
+}
 `
 const MenuWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(6, auto);
   gap: 30px;
+
+  @media (max-width: 768px) {
+  grid-template-columns: auto;
+  > a {
+    display: none;
+  }
+}
 `
 const MenuItem = styled.div`
   color: rgba(255, 255, 255, 0.7);
@@ -56,4 +81,12 @@ transition: 0.5s ease-out;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1),
     inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.2);
 }
+`
+
+const HamburgerWrapper = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `

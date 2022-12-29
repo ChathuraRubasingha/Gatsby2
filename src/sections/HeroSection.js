@@ -15,7 +15,7 @@ function HeroSection() {
       <TextWrapper>
         <Title>
             Design <br />
-            and code React apps
+            and code <span>React</span> apps
         </Title>
         <Description>
             Don’t skip design. Learn design and code, by building real apps with
@@ -50,9 +50,14 @@ const ContentWrapper = styled.div`
     display: grid;
     grid-template-columns: 360px auto;
 
+    @media (max-width: 450px) {
+  grid-template-columns: auto;
+  padding: 150px 20px 250px;
+  gap: 60px;
+
 `
 const Title = styled.h1`
-  font-weight: bold;
+  font-weight: 1000;
   font-size: 60px;
   color: ${themes.dark.text1};
   margin-bottom: 20px;
@@ -60,6 +65,19 @@ const Title = styled.h1`
   animation: ${animation} 1s;
   opacity: 0;
   animation: ${animation} 1s 0.1s forwards;
+  background: linear-gradient(180deg, #730040 0%, #301cbe 100%);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+span {
+	background: linear-gradient(180deg, #ffd7ff 0%, #ffb6ff 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+  @media (max-width: 450px) {
+  font-size: 48px;
+}
+}
 `
 const Description = styled.p`
 	font-size: 17px;

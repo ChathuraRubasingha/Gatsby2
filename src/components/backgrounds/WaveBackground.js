@@ -18,6 +18,9 @@ position: relative;`
 const Wave = styled.img`
   position: absolute;
   z-index: -1;
+  @media (min-width: 1440px) {
+  width: 100%;
+}
 `
 const Background = styled.div`
   position: absolute;
